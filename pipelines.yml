@@ -22,4 +22,4 @@ pipelines:
       execution:
        onExecute:
         - python --version
-        - ls
+        - ls /workspace
