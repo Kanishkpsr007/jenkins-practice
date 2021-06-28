@@ -22,4 +22,4 @@ pipelines:
       execution:
        onExecute:
         - python --version
-        - python test.py
+        - ls
