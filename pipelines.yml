@@ -1,0 +1,24 @@
+template: true
+valuesFilePath: ./values.yml
+
+resources:
+ - name: myrepo
+   type: GitRepo
+   configuration:
+      gitProvider: {{.Values.myrepo.gitProvider}}
+      path: {{.Values.myRepo.path}}
+      branches:
+       include: kanishk_jfrog_demo
+
+
+pipelines:
+ - name: python_pipeline
+   steps:
+    - name: p1
+      type: Bash
+      configuration:
+       inputResources:
+        - name: myrepo
+      execution:
+       onExecute:
+        - python --version
