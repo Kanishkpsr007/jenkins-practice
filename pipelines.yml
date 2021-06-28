@@ -5,7 +5,7 @@ resources:
  - name: myrepo
    type: GitRepo
    configuration:
-      gitProvider: {{.Values.myrepo.gitProvider}}
+      gitProvider: {{.Values.myRepo.gitProvider}}
       path: {{.Values.myRepo.path}}
       branches:
        include: kanishk_jfrog_demo
