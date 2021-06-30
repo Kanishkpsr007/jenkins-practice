@@ -25,5 +25,5 @@ pipelines:
        onExecute:
         - python --version
         - docker --version
-        - echo $(res_myrepo_path)
+        - echo $res_myrepo_path
         - pwd
