@@ -21,6 +21,7 @@ pipelines:
         - name: myrepo
        runtime:
          type: host
+         language: ruby
       execution:
        onExecute:
         - python --version
