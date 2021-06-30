@@ -23,4 +23,4 @@ pipelines:
        onExecute:
         - python --version
         - docker --version
-        - echo $(jforg get_resource_state "myrepo")
+        - echo $(get_resource_state "myrepo")
