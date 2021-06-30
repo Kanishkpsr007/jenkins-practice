@@ -23,7 +23,11 @@ pipelines:
          type: host
       execution:
        onExecute:
-        - ruby --version
+        - python --version
         - docker --version
         - pushd $res_myrepo_resourcePath
         - python test.py
+       onSuccess:
+        - echo "finally"
+       onFailure:
+        - echo "next time"
