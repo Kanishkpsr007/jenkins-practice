@@ -26,4 +26,4 @@ pipelines:
         - python --version
         - docker --version
         - pushd $res_myrepo_resourcePath
-        - ls
+        - python test.py
