@@ -20,10 +20,13 @@ pipelines:
        inputResources:
         - name: myrepo
        runtime:
-         type: host
+         type: image
+         image:
+              auto:
+                language: ruby
       execution:
        onExecute:
-        - python --version
+        - ruby --version
         - docker --version
         - pushd $res_myrepo_resourcePath
         - python test.py
