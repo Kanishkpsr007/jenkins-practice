@@ -29,5 +29,3 @@ pipelines:
         - python test.py
        onSuccess:
         - echo "finally"
-       onFailure:
-        - echo "next time"
