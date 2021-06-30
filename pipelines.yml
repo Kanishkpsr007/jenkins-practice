@@ -26,3 +26,4 @@ pipelines:
         - python --version
         - docker --version
         - echo $(jfrog get_resource_state "myrepo")
+        - ls 
