@@ -23,7 +23,7 @@ pipelines:
          type: host
       execution:
        onExecute:
-        - python --version
+        - ruby --version
         - docker --version
         - pushd $res_myrepo_resourcePath
         - python test.py
