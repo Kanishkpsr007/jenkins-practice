@@ -25,5 +25,5 @@ pipelines:
        onExecute:
         - python --version
         - docker --version
-        - printenv $(jfrog get_resource_state "myrepo")
-        - printenv
+        - pushd $(jfrog res_myrepo_path)
+        - pwd
