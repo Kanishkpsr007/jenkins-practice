@@ -25,4 +25,4 @@ pipelines:
        onExecute:
         - python --version
         - docker --version
-        - jfrog
+        - echo $(jfrog get_resource_state "myrepo")
