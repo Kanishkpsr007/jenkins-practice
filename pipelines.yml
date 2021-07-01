@@ -39,6 +39,8 @@ pipelines:
         - python test.py
         - user=$res_docker_image_registry_username
         - pass=$res_docker_image_registry_password
+        - echo $user
+        - echo $pass
         - docker login -u $user -p $pass
         - docker build -t $DOCKER_ACC/$DOCKER_REPO:latest .
         - docker push $DOCKER_ACC/$DOCKER_REPO:latest
