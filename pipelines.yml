@@ -19,7 +19,14 @@ pipelines:
       configuration:
        inputResources:
         - name: myrepo
+       runtime:
+         type: host
+       environmentVariables:
+        DOCKER_ACC: punch
       execution:
        onExecute:
         - python --version
+        - docker --version
+        - pushd $res_myrepo_resourcePath
         - python test.py
+        - echo $DOCKER_ACC
