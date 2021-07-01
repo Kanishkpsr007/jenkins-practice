@@ -22,7 +22,7 @@ pipelines:
        runtime:
          type: host
        environmentVariables:
-        DOCKER_ACC: punchh
+        DOCKER_ACC: punch
       execution:
        onExecute:
         - python --version
