@@ -9,6 +9,13 @@ resources:
       path: {{.Values.myRepo.path}}
       branches:
        include: kanishk_jfrog_demo
+ - name: docker_image
+   type: image
+   configuration:
+    registory: kanishk_docker
+    imageName: kanishkrajawat01/stats-service
+    imageTag: latest
+   
 
 
 pipelines:
@@ -22,11 +29,16 @@ pipelines:
        runtime:
          type: host
        environmentVariables:
-        DOCKER_ACC: punch
+        DOCKER_ACC: punchh
+        DOCKER_REPO: shippable-stats-service
       execution:
        onExecute:
         - python --version
         - docker --version
         - pushd $res_myrepo_resourcePath
         - python test.py
-        - echo $DOCKER_ACC
+        - user=$res_docker_image_registry_username
+        - pass=$res_docker_image_registry_password
+        - docker login -u $user -p $pass
+        - docker build -t $DOCKER_ACC/$DOCKER_REPO:latest .
+        - docker push $DOCKER_ACC/$DOCKER_REPO:latest
