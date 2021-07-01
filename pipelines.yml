@@ -12,7 +12,7 @@ resources:
  - name: docker_image
    type: image
    configuration:
-    registory: kanishk_docker
+    registry: kanishk_docker
     imageName: kanishkrajawat01/stats-service
     imageTag: latest
    
