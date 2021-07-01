@@ -21,11 +21,12 @@ pipelines:
         - name: myrepo
        runtime:
          type: host
+       environmentVariables:
+        DOCKER_ACC: punchh
       execution:
        onExecute:
-        - ruby --version
+        - python --version
         - docker --version
         - pushd $res_myrepo_resourcePath
         - python test.py
-       onSuccess:
-        - echo "finally"
+        - echo $DOCKER_ACC
