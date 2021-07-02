@@ -26,6 +26,7 @@ pipelines:
       configuration:
        inputResources:
         - name: myrepo
+       outputResources:
         - name: docker_image
        runtime:
          type: host
