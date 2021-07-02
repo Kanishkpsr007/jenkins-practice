@@ -31,7 +31,7 @@ pipelines:
        runtime:
          type: host
        environmentVariables:
-        DOCKER_ACC: punchh
+        DOCKER_ACC: kanishkrajawat01
         DOCKER_REPO: shippable-stats-service
       execution:
        onExecute:
