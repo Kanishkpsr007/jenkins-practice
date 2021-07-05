@@ -14,7 +14,7 @@ resources:
    configuration:
     registry: test_docker_build
     sourceRepository: jfrogdockerbuild
-    imageName: punchhdev.jfrog.io/artifactory/jfrogdockerbuild/dimage
+    imageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
     imageTag: latest
     autoPull: true
 
@@ -27,7 +27,7 @@ pipelines:
        affinityGroup: d_group
        dockerFileLocation: .
        dockerFileName: dockerfile.yml
-       dockerImageName: punchhdev.jfrog.io/artifactory/jfrogdockerbuild/dimage
+       dockerImageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
        dockerImageTag: latest
        inputResources:
         - name: d_repo
