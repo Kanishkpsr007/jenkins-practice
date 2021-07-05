@@ -1,50 +1,45 @@
-template: true
-valuesFilePath: ./values.yml
-
 resources:
- - name: myrepo
+ - name: d_repo
    type: GitRepo
    configuration:
-      gitProvider: {{.Values.myRepo.gitProvider}}
-      path: {{.Values.myRepo.path}}
-      branches:
-       include: kanishk_jfrog_demo
- - name: docker_image
-   type: image
+    gitProvider: {{ .Values.myRepo.gitProvider }}
+    path: {{ .Values.myRepo.path }}
+    branches:
+     include: docker_build
+ - name: d_image
+   type: Image
    configuration:
-    registry: kanishk_docker
-    imageName: kanishkrajawat01/stats-service
+    registry: test_docker_build
+    sourceRepository: jfrogdockerbuild
+    imageName: punchhdev.jfrog.io/artifactory/jfrogdockerbuild/dimage
     imageTag: latest
-   
-
+    autoPull: true
 
 pipelines:
- - name: python_pipeline
+ - name: pipeline_d
    steps:
-    - name: p1
-      type: Bash
+    - name: docker_build
+      type: DockerBuild
       configuration:
+       affinityGroup: d_group
+       dockerFileLocation: .
+       dockerFileName: Dockerfile
+       dockerImageName: punchhdev.jfrog.io/artifactory/jfrogdockerbuild/dimage
+       dockerImageTag: latest
        inputResources:
-        - name: myrepo
-       outputResources:
-        - name: docker_image
-       runtime:
-         type: host
-       environmentVariables:
-        DOCKER_ACC: punchh
-        DOCKER_REPO: shippable-stats-service
-      execution:
-       onExecute:
-        - python --version
-        - docker --version
-        - pushd $res_myrepo_resourcePath
-        - python test.py
-        - user=$res_docker_image_registry_username
-        - pass=$res_docker_image_registry_password
-        - echo $user
-        - echo $pass
-        - pwd
-        - ls
-        - docker login -u $user -p $pass
-        - docker build -t $DOCKER_ACC/$DOCKER_REPO:latest -f dockerfile.yml .
-        - docker push $DOCKER_ACC/$DOCKER_REPO:latest
+        - name: d_repo
+       integrations:
+        - name: test_docker_build
+
+  - name: docker_push
+    type: DockerPush
+    configuration:
+     affinityGroup: d_group
+     targetRepository: jfrogdockerbuild
+     integrations:
+      - name: test_docker_build
+     inputSteps:
+      - name: docker_build 
+     outputResources:
+      - name: d_image
+       
