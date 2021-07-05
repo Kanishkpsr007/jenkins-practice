@@ -26,7 +26,7 @@ pipelines:
       configuration:
        affinityGroup: d_group
        dockerFileLocation: .
-       dockerFileName: Dockerfile
+       dockerFileName: dockerfile
        dockerImageName: punchhdev.jfrog.io/artifactory/jfrogdockerbuild/dimage
        dockerImageTag: latest
        inputResources:
