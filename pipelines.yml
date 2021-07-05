@@ -28,7 +28,7 @@ pipelines:
        dockerFileLocation: .
        dockerFileName: dockerfile.yml
        dockerImageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
-       dockerImageTag: latest
+       dockerImageTag: ${run_number}
        inputResources:
         - name: d_repo
        integrations:
