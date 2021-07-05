@@ -14,7 +14,7 @@ resources:
    configuration:
     registry: test_docker_build
     sourceRepository: jfrogdockerbuild
-    imageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
+    imageName: punchhdev.jfrog.io/jfrogdockerbuild/
     imageTag: latest
     autoPull: true
 
