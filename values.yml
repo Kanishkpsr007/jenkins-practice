@@ -3,4 +3,4 @@
 #   path: kanishkpsr007/jenkins-practice
   GitRepo:
   name: pyt_test
-  branch: kanishk_jforg_demo
+  branch: {{gitBranch}}
