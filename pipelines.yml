@@ -2,8 +2,8 @@ resources:
  - name: d_repo
    type: GitRepo
    configuration:
-    gitProvider: {{ .Values.myRepo.gitProvider }}
-    path: {{ .Values.myRepo.path }}
+    gitProvider: {{.Values.myRepo.gitProvider}}
+    path: {{.Values.myRepo.path}}
     branches:
      include: docker_build
  - name: d_image
