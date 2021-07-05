@@ -30,16 +30,16 @@ pipelines:
         - name: d_repo
        integrations:
         - name: test_docker_build
-
-  - name: docker_push
-    type: DockerPush
-    configuration:
-     affinityGroup: d_group
-     targetRepository: jfrogdockerbuild
-     integrations:
-      - name: test_docker_build
-     inputSteps:
-      - name: docker_build 
-     outputResources:
-      - name: d_image
+    
+    - name: docker_push
+      type: DockerPush
+      configuration:
+       affinityGroup: d_group
+       targetRepository: jfrogdockerbuild
+       integrations:
+        - name: test_docker_build
+       inputSteps:
+        - name: docker_build 
+       outputResources:
+        - name: d_image
        
