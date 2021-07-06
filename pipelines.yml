@@ -12,7 +12,7 @@ resources:
  - name: d_image
    type: Image
    configuration:
-    registry: test_docker_build
+    registry: kanishk_docker
     sourceRepository: jfrogdockerbuild
     imageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
     imageTag: latest
