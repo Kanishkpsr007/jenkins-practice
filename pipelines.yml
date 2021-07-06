@@ -27,7 +27,7 @@ pipelines:
        affinityGroup: d_group
        dockerFileLocation: .
        dockerFileName: dockerfile.yml
-       dockerImageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
+       dockerImageName: punchhdev.jfrog.io/jfrogdockerbuild
        dockerImageTag: latest
        inputResources:
         - name: d_repo
