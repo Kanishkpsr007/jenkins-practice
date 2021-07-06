@@ -54,8 +54,8 @@ pipelines:
         - name: d_image
         
     - name: publish_d_build
-        type: PublishBuildInfo
-        configuration:
+      type: PublishBuildInfo
+      configuration:
           inputSteps:
             - name: docker_push
           outputResources:
