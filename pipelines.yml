@@ -12,7 +12,7 @@ resources:
  - name: d_image
    type: Image
    configuration:
-    registry: kanishk_docker
+    registry: test_docker_build
     sourceRepository: jfrogdockerbuild
     imageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
     imageTag: latest
@@ -28,7 +28,7 @@ pipelines:
        dockerFileLocation: .
        dockerFileName: dockerfile.yml
        dockerImageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage
-       dockerImageTag: ${run_number}
+       dockerImageTag: latest
        inputResources:
         - name: d_repo
        integrations:
