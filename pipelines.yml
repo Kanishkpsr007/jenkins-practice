@@ -18,8 +18,8 @@ resources:
     imageTag: latest
     autoPull: true
  - name: d_build_info
-    type: BuildInfo
-    configuration:
+   type: BuildInfo
+   configuration:
       sourceArtifactory: test_docker_build
       buildName: d_build
       buildNumber: 1   
