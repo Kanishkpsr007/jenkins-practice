@@ -2,7 +2,7 @@ template: true
 valuesFilePath: ./values.yml
 
 resources:
- - name: myrepo
+ - name: myrepo1
    type: GitRepo
    configuration:
       gitProvider: {{.Values.myRepo.gitProvider}}
@@ -36,7 +36,7 @@ pipelines:
        integrations:
         - name: test_docker_build
        inputResources:
-        - name: myrepo
+        - name: myrepo1
           branch: kanishk_jfrog_demo
        outputResources:
         - name: docker_image
