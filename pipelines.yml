@@ -43,8 +43,8 @@ pipelines:
       execution:
        onStart:
         - pwd
-       onExecute:
-            - pushd $res_myrepo_resourcePath
-            - retry_command jfrog rt config --url $int_test_docker_build_url --user $int_test_docker_build_user --apikey $int_test_docker_build_apikey
-            - docker build -t $res_docker_image_imageName:latest -f dockerfile.yml .
-            - jfrog rt docker-push $res_docker_image_imageName:latest $res_docker_image_sourceRepository
+#        onExecute:
+#             - pushd $res_myrepo_resourcePath
+#             - retry_command jfrog rt config --url $int_test_docker_build_url --user $int_test_docker_build_user --apikey $int_test_docker_build_apikey
+#             - docker build -t $res_docker_image_imageName:latest -f dockerfile.yml .
+#             - jfrog rt docker-push $res_docker_image_imageName:latest $res_docker_image_sourceRepository
