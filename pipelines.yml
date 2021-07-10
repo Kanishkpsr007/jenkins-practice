@@ -31,7 +31,7 @@ pipelines:
          - 1.12
    steps:
     - name: docker_build
-      type: host
+      type: Bash
       configuration:
        integrations:
         - name: test_docker_build
