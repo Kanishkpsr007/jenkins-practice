@@ -29,7 +29,6 @@ pipelines:
         language: go
         versions:
          - 1.12
-    branch: kanishk_jfrog_demo
    steps:
     - name: docker_build
       type: host
