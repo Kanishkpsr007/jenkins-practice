@@ -30,22 +30,22 @@ pipelines:
         versions:
          - 1.12
     branch: kanishk_jfrog_demo
-  steps:
-   - name: docker_build
-     type: host
-     configuration:
-      integration:
-       - name: test_docker_build
-      inputResources:
-       - name: myrepo
-         branch: kanishk_jfrog_demo
-      outputResources:
-       - name: docker_image
-     execution:
-      onStart:
-       - pwd
-      onExecute:
-       - |
+   steps:
+    - name: docker_build
+      type: host
+      configuration:
+       integration:
+        - name: test_docker_build
+       inputResources:
+        - name: myrepo
+          branch: kanishk_jfrog_demo
+       outputResources:
+        - name: docker_image
+      execution:
+       onStart:
+        - pwd
+       onExecute:
+        - |
            if ( [ $res_myrepo_branchName == "kanishk_jfrog_demo"] && [ $res_myrepo_isPullRequest == false])
            then 
             pushd $res_myrepo_resourcePath
@@ -53,8 +53,8 @@ pipelines:
             docker build -t $res_docker_image_imageName:latest -f dockerfile.yml .
             jfrog rt docker-push $res_docker_image_imageName:latest $res_docker_image_sourceRepository
            fi 
-      onSucess:
-       - |
+       onSucess:
+        - |
            if ( [ $res_myrepo_branchName == "kanishk_jfrog_demo"] && [ $res_myrepo_isPullRequest == false])
            then
             #  shipctl put_resource_state_multi docker_image_event_webhook_service "versionName=$COMMIT sourceName=$DOCKER_ACC/$DOCKER_REPO buildNumber=$BUILD_NUMBER"
