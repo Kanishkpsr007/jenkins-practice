@@ -1,6 +1,4 @@
-# myRepo:
-#   gitProvider: py_test
-#   path: kanishkpsr007/jenkins-practice
-  GitRepo:
-   name: test_pyt
-   branch: {{gitBranch}}
+myRepo:
+  gitProvider: py_template
+  path: kanishkpsr007/jenkins-practice
+
