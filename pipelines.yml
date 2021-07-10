@@ -44,17 +44,8 @@ pipelines:
        onStart:
         - pwd
        onExecute:
-        - |
-           if ( [ $res_myrepo_branchName == "kanishk_jfrog_demo"] && [ $res_myrepo_isPullRequest == false])
-           then 
-            pushd $res_myrepo_resourcePath
-            retry_command jfrog rt config --url $int_test_docker_build_url --user $int_test_docker_build_user --apikey $int_test_docker_build_apikey
-            docker build -t $res_docker_image_imageName:latest -f dockerfile.yml .
-            jfrog rt docker-push $res_docker_image_imageName:latest $res_docker_image_sourceRepository
-           fi 
-       onSucess:
-        - |
-           if ( [ $res_myrepo_branchName == "kanishk_jfrog_demo"] && [ $res_myrepo_isPullRequest == false])
-           then
-            #  shipctl put_resource_state_multi docker_image_event_webhook_service "versionName=$COMMIT sourceName=$DOCKER_ACC/$DOCKER_REPO buildNumber=$BUILD_NUMBER"
-           fi
+           - pushd $res_myrepo_resourcePath
+           - retry_command jfrog rt config --url $int_test_docker_build_url --user $int_test_docker_build_user --apikey $int_test_docker_build_apikey
+           - docker build -t $res_docker_image_imageName:latest -f dockerfile.yml .
+           - jfrog rt docker-push $res_docker_image_imageName:latest $res_docker_image_sourceRepository
+      
