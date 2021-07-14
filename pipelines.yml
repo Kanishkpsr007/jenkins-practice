@@ -27,7 +27,6 @@ pipelines:
       configuration:
        inputResources:
         - name: myrepo1
-          branch: kanishk_jfrog_demo
       execution:
        onExecute:
         - pushd $res_myrepo1_resourcePath
