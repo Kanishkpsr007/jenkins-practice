@@ -31,3 +31,4 @@ pipelines:
        onExecute:
         - pushd $res_myrepo1_resourcePath
         - python tag.py
+        - python --version
