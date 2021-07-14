@@ -9,14 +9,6 @@ resources:
       path: {{.Values.myRepo.path}}
       branches:
        include: kanishk_jfrog_demo
- - name: docker_image
-   type: Image
-   configuration:
-    registry: test_docker_build
-    sourceRepository: jfrogdockerbuild
-    imageName: punchhdev.jfrog.io/jfrogdockerbuild/dimage2
-    imageTag: latest
-   
 
 
 pipelines:
@@ -33,13 +25,9 @@ pipelines:
     - name: docker_build
       type: Bash
       configuration:
-       integrations:
-        - name: test_docker_build
        inputResources:
         - name: myrepo1
           branch: kanishk_jfrog_demo
-       outputResources:
-        - name: docker_image
       execution:
        onExecute:
         - pushd $res_myrepo1_resourcePath
