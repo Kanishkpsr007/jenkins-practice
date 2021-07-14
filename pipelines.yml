@@ -30,4 +30,4 @@ pipelines:
       execution:
        onExecute:
         - pushd $res_myrepo1_resourcePath
-        - git describe --tags --abbrev=0
+        - python tag.py
