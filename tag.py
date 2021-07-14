@@ -1,2 +1,3 @@
 import os
-os.system("git describe --tags --abbrev=0")
+a=os.system("git describe --tags --abbrev=0")
+print(a)
