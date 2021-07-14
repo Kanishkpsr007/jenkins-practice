@@ -1,3 +1,3 @@
-import os
-a=os.system("git describe --tags --abbrev=0")
+import subprocess
+a=subprocess.run("git describe --tags --abbrev=0")
 print(a)
