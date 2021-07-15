@@ -1,1 +1,1 @@
-FROM go
+FROM go:latest
