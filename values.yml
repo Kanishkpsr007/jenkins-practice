@@ -1,6 +1,6 @@
 github:
  name: eventframework_code_repo
- branch: vb-yml
+ branch: JB-1
 image:
  name: docker_image_event_webhook_service
  imagename: eventwebhook
