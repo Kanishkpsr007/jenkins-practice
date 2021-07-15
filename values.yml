@@ -1,6 +1,6 @@
 github:
  name: eventframework_code_repo
- branch: gds-vb-yml
+ branch: JB-2
 image:
  name: docker_image_event_webhook_service
  imagename: eventwebhook
@@ -8,4 +8,4 @@ image:
 runtime: 
  version: 1.12
 docker:
- filepath: app/build/Dockerfile
+ filepath: .
