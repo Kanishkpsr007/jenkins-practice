@@ -1,4 +1,11 @@
-myRepo:
-  gitProvider: py_template
-  path: kanishkpsr007/jenkins-practice
-
+github:
+ name: eventframework_code_repo
+ branch: gds-vb-yml
+image:
+ name: docker_image_event_webhook_service
+ imagename: eventwebhook
+ imageTag: latest
+runtime: 
+ version: 1.12
+docker:
+ filepath: app/build/Dockerfile
