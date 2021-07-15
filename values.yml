@@ -8,4 +8,4 @@ image:
 runtime: 
  version: 1.12
 docker:
- filepath: app/build/Dockerfile
+ filepath: .
