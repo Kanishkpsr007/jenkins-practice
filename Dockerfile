@@ -1,1 +1,1 @@
-FROM go:latest
+FROM alpine
